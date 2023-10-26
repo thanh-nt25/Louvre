@@ -2,6 +2,7 @@ const {
     getAllProduct,
     getProduct,
     createProduct,
+    deleteProduct,
   } = require("../handlers/product");
   
   const { authenticateJWT, allowRole } = require("../utils/authenticate");
@@ -16,5 +17,11 @@ const {
       authenticateJWT,
       allowRole(ROLES.SELLER_ID),
       createProduct
+    );
+    app.delete(
+      "/product/:id",
+      authenticateJWT,
+      allowRole(ROLES.ADMIN_ID, ROLES.BUYER_ID),
+      deleteProduct
     );
   };
