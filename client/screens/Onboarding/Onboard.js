@@ -1,15 +1,18 @@
 import { View, Text, ImageBackground, Image, StyleSheet } from "react-native";
 import { TextButton } from "../../components";
+import { SvgUri } from "react-native-svg";
 
+import logos from "../../constants/logo";
 const Onboard = ({ navigation }) => {
   return (
     <ImageBackground
       source={{
-        uri: "https://user-images.githubusercontent.com/43158356/182350291-d9e0a00d-9677-481c-8c52-9abf66f4a2fd.jpeg",
+        uri:"https://hips.hearstapps.com/hmg-prod/images/kaia-gerber-zara-2-1664871930.jpg?resize=1200:*",
       }}
       resizeMode="cover"
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
+      <SvgUri width="100%" height="100%" uri={logos.logo_dark_transparent} />
       <TextButton
         label={"Login"}
         labelStyle={styles.label}
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: "center",
     backgroundColor: "white",
-    top: 250,
+    top: -250,
     marginTop: 20,
   },
   label: {

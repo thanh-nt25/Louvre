@@ -21,5 +21,20 @@ const HomeStackNavigator = () => {
   );
 };
 
+const OnboardingStackNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Onboard" component={Onboard} />
+      <Stack.Screen name="Login" component={Login}/>
+      <Stack.Screen name="Sign Up" component={SignUp}/>
 
-export { HomeStackNavigator };
+
+    </Stack.Navigator>
+  );
+};
+
+export { HomeStackNavigator, OnboardingStackNavigator };
