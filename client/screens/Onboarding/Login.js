@@ -6,20 +6,21 @@ import {
     StyleSheet,
     TextInput,
     TouchableWithoutFeedback,
-    Keyboard
+    Keyboard,
   } from "react-native";
   import { TextButton } from "../../components";
   import { COLORS, FONTS } from "../../constants";
   import { useState } from "react";
   import { SvgUri } from "react-native-svg";
-import logos from "../../constants/logo";
+  import logos from "../../constants/logo";
+  import { LoginReq } from "../../requests/OnboardReq";
   
   const Login = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    console.log(email);
-    console.log(password);
+    console.log("email"+email);
+    console.log("password"+password);
     return (
           <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -38,7 +39,7 @@ import logos from "../../constants/logo";
           <View style={{ marginTop: 60 }}>
             <View>
               <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>Email</Text>
-              <TextInput style={{ ...FONTS.h3 }} onChangeText={setEmail} />
+              <TextInput style={{ ...FONTS.h3 }} onChangeText={setEmail} autoCapitalize='none' />
               <View
                 style={{
                   height: 1,
@@ -54,6 +55,7 @@ import logos from "../../constants/logo";
                 style={{ ...FONTS.h3 }}
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                autoCapitalize='none'
               />
               <View
                 style={{
@@ -69,7 +71,7 @@ import logos from "../../constants/logo";
             label={"Login"}
             labelStyle={styles.label}
             buttonContainerStyle={styles.buttonContainer}
-            onPress={() => navigation.navigate("Login")}
+            onPress={()  => LoginReq(email,password)}
           />
           </View>
         </TouchableWithoutFeedback>

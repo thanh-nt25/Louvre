@@ -6,22 +6,25 @@ import {
   StyleSheet,
   TextInput,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { TextButton } from "../../components";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { useState } from "react";
 import { SvgUri } from "react-native-svg";
 import logos from "../../constants/logo";
+import { SignUpReq } from "../../requests/OnboardReq";
 
 const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
 
-  console.log(username);
-  console.log(email);
-  console.log(password);
+  console.log("handle: " + username);
+  console.log("email: " + email);
+  console.log("password:" + password);
+  console.log("role: " + role);
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -43,7 +46,7 @@ const SignUp = ({ navigation }) => {
           <View style={{ marginTop: 60 }}>
             <View>
               <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>Username</Text>
-              <TextInput style={{ ...FONTS.h3 }} onChangeText={setUsername} />
+              <TextInput style={{ ...FONTS.h3 }} onChangeText={setUsername} autoCapitalize="none"/>
               <View
                 style={{
                   height: 1,
@@ -55,7 +58,7 @@ const SignUp = ({ navigation }) => {
 
             <View style={{ marginTop: 20 }}>
               <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>Email</Text>
-              <TextInput style={{ ...FONTS.h3 }} onChangeText={setEmail} />
+              <TextInput style={{ ...FONTS.h3 }} onChangeText={setEmail} autoCapitalize="none"/>
               <View
                 style={{
                   height: 1,
@@ -71,6 +74,7 @@ const SignUp = ({ navigation }) => {
                 style={{ ...FONTS.h3 }}
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                autoCapitalize="none"
               />
               <View
                 style={{
@@ -82,13 +86,11 @@ const SignUp = ({ navigation }) => {
             </View>
 
             <View style={{ marginTop: 20 }}>
-              <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>
-                Confirm Password
-              </Text>
+            <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>User Role</Text>
               <TextInput
                 style={{ ...FONTS.h3 }}
-                onChangeText={setPassword}
-                secureTextEntry={true}
+                onChangeText={setRole}
+                autoCapitalize="none"
               />
               <View
                 style={{
@@ -105,7 +107,7 @@ const SignUp = ({ navigation }) => {
           label={"Sign Up"}
           labelStyle={styles.label}
           buttonContainerStyle={styles.buttonContainer}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => SignUpReq(email, password, role, username)}
         />
       </View>
     </TouchableWithoutFeedback>
