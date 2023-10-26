@@ -17,7 +17,7 @@ const Header = ({ containerStyle, title, leftComponent, rightComponent }) => {
       {/*center*/}
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ ...FONTS.h3, fontWeight:"bold" }}>ETHRIFT</Text>
+        <Text style={{ ...FONTS.h3, fontWeight:"bold" }}>LOUVRE</Text>
       </View>
 
       {/*right*/}
