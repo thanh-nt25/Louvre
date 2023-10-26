@@ -2,20 +2,20 @@
 
 Louvre is a user-friendly mobile fashion marketplace application that facilitates buying and trading with role-based access.
 
-**Role-based**
+## Role-based
 
 - Admin (admin): access buyer and seller past transactions, access user information and create/delete accounts.
 - Buyer: can make a purchase (select item, quantity, size and payment - can track orders using Google Maps API).
 - Seller: can create a post with photos and information about the item, make sales transactions.
 
-**Tech Stack:**
+## Tech Stack
 
     - Front-end: React Native, ReAnimated 2, Expo, TypeScript, Axios.
     - Back-end: Node.JS, Express.JS, MongoDB.
     - Security: JWT*, accessToken - refreshToken.
     - Tools: Postman, VSCode.
 
-**DEMO:**
+## DEMO
 
 
 **Onboarding: Sign Up and Log In**
