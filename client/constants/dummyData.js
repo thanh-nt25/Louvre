@@ -170,9 +170,25 @@ const banner_sale = [
   },
 ];
 
+const myCart = [
+  {
+      ...linen_blend_suit_blazer,
+      qty: 1
+  },
+  {
+      ...comfort_coat,
+      qty: 2
+  },
+  {
+      ...lyocell_shirt,
+      qty: 1
+  }
+]
+
 export default {
   myProfile,
   categories,
   menu,
   banner_sale,
+  myCart
 };
