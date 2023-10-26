@@ -54,7 +54,7 @@ const AdminStackNavigator = () => {
 const MainStackNavigator = () => {
   const {isLoggedIn} = useLogin()
   return(
-    isLoggedIn ? <CustomDrawer/> : <AdminStackNavigator/>
+    isLoggedIn ? <AdminStackNavigator/> : <CustomDrawer/>
   )
 }
 
