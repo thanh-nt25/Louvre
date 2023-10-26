@@ -17,14 +17,14 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import InputSpinner from "react-native-input-spinner";
 const ItemDetail = ({ route, navigation }) => {
-    const { item } = route.params;
-    const [starCount, setStarCount] = useState(0);
+  const { item } = route.params;
+  const [starCount, setStarCount] = useState(0);
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.lightGray2 }}>
       {/* Body */}
       <View style={styles.imageContainer}>
-        <Image source={item.image} style={{width: SIZES.width, flex:1}}/>
+        <Image source={item.image} style={{ width: SIZES.width, flex: 1 }} />
       </View>
       <ScrollView style={styles.detailContainer}>
         <View style={{ padding: 20 }}>
@@ -75,7 +75,7 @@ const ItemDetail = ({ route, navigation }) => {
             {item.description}
           </Text>
         </View>
-        <View style={{ flexDirection: "row", alignItems:"flex-start" }}>
+        <View style={{ flexDirection: "row", alignItems: "flex-start" }}>
           <View style={{ marginLeft: 20, top: -10 }}>
             <Text style={{ fontWeight: "bold", ...FONTS.h3 }}>Price</Text>
             <Text
@@ -96,15 +96,24 @@ const ItemDetail = ({ route, navigation }) => {
               width: 200,
               backgroundColor: COLORS.black,
               borderRadius: 30,
-              marginLeft:40,
-              alignItems:"center",
-              justifyContent:"center",
-              flexDirection:"row",
+              marginLeft: 40,
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
             }}
-            onPress={()=> navigation.navigate('Cart')}
+            onPress={() => alert("Added to cart!")}
           >
-          <Icons name="shopping-bag" size={30} color="white"/>
-          <Text style={{color:COLORS.white, marginLeft:10, ...FONTS.body3, fontWeight:"bold"}}>Add to card</Text>
+            <Icons name="shopping-bag" size={30} color="white" />
+            <Text
+              style={{
+                color: COLORS.white,
+                marginLeft: 10,
+                ...FONTS.body3,
+                fontWeight: "bold",
+              }}
+            >
+              Add to card
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -142,7 +151,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
-
   },
   item: {
     borderWidth: 4,
@@ -156,4 +164,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
     width: 30,
   },
-})
+});
