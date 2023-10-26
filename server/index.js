@@ -4,6 +4,7 @@ const initUserRouter = require("./routers/userRouter");
 const initProductRouter = require("./routers/productRouter");
 const initProductCategoryRouter = require("./routers/productCategoryRouter");
 const initUserAddressRouter = require("./routers/userAddressRouter");
+const initOrderRouter = require("./routers/orderRouter");
 const initDatabase = require("./utils/mongoose");
 
 initDatabase();
@@ -12,9 +13,12 @@ initUserRouter(app);
 initProductRouter(app);
 initProductCategoryRouter(app);
 initUserAddressRouter(app);
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
+initOrderRouter(app);
+
+// test
+// app.get('/', (req, res) => {
+//   res.send('Hello world');
+// });
 
 let port = process.env.PORT || 3000;
 
