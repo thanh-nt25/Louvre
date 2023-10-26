@@ -5,6 +5,10 @@ import { CartTab, Home } from "../screens";
 import { Onboard, Login, SignUp } from "../screens";
 import ItemDetail from "../screens/Fashion Items/ItemDetail";
 
+import { useLogin } from "../context/LoginProvider";
+import CustomDrawer from "./CustomDrawer";
+import { HomeScreen } from "../admin_protected/HomeScreen";
+
 const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
@@ -37,4 +41,21 @@ const OnboardingStackNavigator = () => {
   );
 };
 
-export { HomeStackNavigator, OnboardingStackNavigator };
+const AdminStackNavigator = () => {
+  return(
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home_admin" component={HomeScreen}/>
+
+      </Stack.Navigator>
+  )
+}
+
+const MainStackNavigator = () => {
+  const {isLoggedIn} = useLogin()
+  return(
+    isLoggedIn ? <CustomDrawer/> : <AdminStackNavigator/>
+  )
+}
+
+export { HomeStackNavigator, OnboardingStackNavigator, AdminStackNavigator, MainStackNavigator };
