@@ -147,20 +147,32 @@ exports.getUserInfo = async (req, res) => {
     });
 };
         
-        exports.getAllUsers = async (req, res) => {
-            if (req.user.role != ROLES.ADMIN_ID) {
-            return res.status(400).json({ message: "User not allowed" });
-            }
-        
-            const user = await User.find().exec();
-        
-            const responseData = user.map((doc) => {
-            return {
-                userData: doc.getUserData(),
-                tokens: {
-                refreshToken: user.refreshToken,
-                },
-            };
-            });
-            return res.status(200).json(responseData);
+exports.getAllUsers = async (req, res) => {
+    if (req.user.role != ROLES.ADMIN_ID) {
+    return res.status(400).json({ message: "User not allowed" });
+    }
+
+    const user = await User.find().exec();
+
+    const responseData = user.map((doc) => {
+    return {
+        userData: doc.getUserData(),
+        tokens: {
+        refreshToken: doc.refreshToken,
+        },
     };
+    });
+    return res.status(200).json(responseData);
+};
+
+exports.getJWT = async (req, res) => {
+  try {
+    const user = await User.findOne({ handle: req.user.handle }).exec();
+
+    const JWT = user.generateJWT();
+
+    return res.status(200).json({ accessToken: JWT });
+  } catch {
+    return res.status(500).json({ message: "Something went wrong" });
+  }
+};
