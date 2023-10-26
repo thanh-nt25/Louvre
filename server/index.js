@@ -16,9 +16,9 @@ initUserAddressRouter(app);
 initOrderRouter(app);
 
 // test
-// app.get('/', (req, res) => {
-//   res.send('Hello world');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello world');
+});
 
 let port = process.env.PORT || 3000;
 
