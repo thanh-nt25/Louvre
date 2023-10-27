@@ -2,6 +2,7 @@
 
 Louvre is a user-friendly mobile fashion marketplace application that facilitates buying and trading with role-based access.
 
+<img src="https://github.com/thanh-nt25/Louvre/blob/master/client/demo/banner.PNG"/>
 **Role-based**
 
 - Admin (admin): access buyer and seller past transactions, access user information and create/delete accounts.
