@@ -12,7 +12,7 @@ Louvre is a user-friendly mobile fashion marketplace application that facilitate
 
 ## Tech Stack
 
-    - Front-end: React Native, ReAnimated 2, Expo, TypeScript, Axios.
+    - Front-end: React Native, ReAnimated 2, Expo, Axios.
     - Back-end: Node.JS, Express.JS, MongoDB.
     - Security: JWT*, accessToken - refreshToken.
     - Tools: Postman, VSCode.
